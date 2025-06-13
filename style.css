@@ -1,9 +1,24 @@
-/* General Styles */
+/* Cyberpunk-Themed Portfolio CSS */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap');
+
+:root {
+  --bg-dark: #0f0f1b;
+  --bg-panel: #1a1a2e;
+  --neon-pink: #ff00c8;
+  --neon-cyan: #00ffff;
+  --neon-green: #39ff14;
+  --neon-purple: #9d00ff;
+  --text-light: #e0e0e0;
+  --text-dim: #888;
+  --highlight: #f5b700;
+}
+
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Orbitron', sans-serif;
   margin: 0;
-  color: #333;
-  background-color: #f4f4f9;
+  color: var(--text-light);
+  background-color: var(--bg-dark);
   scroll-behavior: smooth;
   font-size: clamp(14px, 2vw, 16px);
 }
@@ -15,16 +30,16 @@ body {
   padding: 0 1rem;
 }
 
-/* Navbar */
 .navbar {
-  background: #333;
-  color: white;
+  background: var(--bg-panel);
+  color: var(--neon-cyan);
   padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   z-index: 1000;
+  border-bottom: 2px solid var(--neon-pink);
 }
 
 .nav-links {
@@ -42,17 +57,18 @@ body {
 
 .nav-links a {
   text-decoration: none;
-  color: white;
+  color: var(--neon-cyan);
   font-weight: bold;
+  text-shadow: 0 0 5px var(--neon-cyan);
 }
 
 .nav-links a:hover {
-  color: #f4b400;
+  color: var(--neon-pink);
+  text-shadow: 0 0 10px var(--neon-pink);
 }
 
-/* Hero Section */
 .hero-section {
-  background: linear-gradient(to bottom right, #f9fafb, #e0f2fe);
+  background: linear-gradient(to bottom, #0f0f1b, #1a1a2e);
   padding: 100px 20px;
   display: flex;
   align-items: center;
@@ -76,13 +92,14 @@ body {
 
 .hero-text h1 {
   font-size: 48px;
-  color: #111827;
+  color: var(--neon-purple);
+  text-shadow: 0 0 10px var(--neon-purple);
   margin-bottom: 20px;
 }
 
 .hero-text p {
   font-size: 18px;
-  color: #050c17;
+  color: var(--neon-green);
   margin-bottom: 30px;
 }
 
@@ -98,13 +115,15 @@ body {
   border-radius: 8px;
   font-weight: 600;
   text-decoration: none;
-  background-color: #2563eb;
-  color: white;
+  background-color: var(--neon-cyan);
+  color: black;
   transition: all 0.3s ease;
+  box-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
 }
 
 .hero-btn:hover {
-  background-color: #1d4ed8;
+  background-color: var(--neon-pink);
+  box-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink);
 }
 
 .hero-image img {
@@ -112,16 +131,14 @@ body {
   height: 250px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 24px rgba(0, 255, 255, 0.3);
 }
 
-/* Typing Effect */
 #typed-sentence {
   font-size: 18px;
-  color: #4b5563;
+  color: var(--text-dim);
   font-weight: 500;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  border-right: 2px solid #2563eb;
+  border-right: 2px solid var(--neon-cyan);
   white-space: nowrap;
   overflow: hidden;
   display: inline-block;
@@ -130,24 +147,23 @@ body {
 
 @keyframes blinkCursor {
   0%, 49% {
-    border-color: #2563eb;
+    border-color: var(--neon-cyan);
   }
   50%, 100% {
     border-color: transparent;
   }
 }
 
-/* Skills Section */
 .skills-section {
   padding: 50px 20px;
-  background: #f3f4f6;
+  background: var(--bg-panel);
   text-align: center;
 }
 
 .skills-section h2 {
   font-size: 32px;
   margin-bottom: 30px;
-  color: #111827;
+  color: var(--neon-green);
 }
 
 .skills-wrapper {
@@ -158,30 +174,23 @@ body {
 }
 
 .skills-block {
-  background: #fff;
+  background: var(--bg-dark);
   border-radius: 15px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 6px 18px var(--neon-purple);
   padding: 25px;
   width: 320px;
   text-align: center;
+  border: 1px solid var(--neon-purple);
 }
 
 .skills-block h3 {
-  color: #1f2937;
+  color: var(--neon-cyan);
   margin-bottom: 20px;
 }
 
 .skills-category h4 {
   margin-top: 15px;
-  color: #374151;
-}
-
-.skills-icons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  margin: 10px 0 20px;
+  color: var(--text-light);
 }
 
 .skills-icons img {
@@ -193,107 +202,111 @@ body {
   transform: scale(1.2);
 }
 
+.skill-badge {
+  background-color: transparent;
+  color: var(--neon-green);
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid var(--neon-green);
+  text-shadow: 0 0 5px var(--neon-green);
+}
+
+.skill-badge:hover {
+  background-color: var(--neon-green);
+  color: black;
+  transform: scale(1.05);
+}
+
+/* Updated Soft Skills Styling */
 .soft-skills-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 12px;
+  margin-top: 20px;
 }
 
 .skill-badge {
-  background-color: #dbeafe;
-  color: #1d4ed8;
-  padding: 10px 18px;
-  border-radius: 25px;
+  background: linear-gradient(145deg, #ff00cc, #3333ff);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 30px;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 0 10px #ff00cc, 0 0 20px #3333ff;
   transition: all 0.3s ease;
+  cursor: default;
 }
 
 .skill-badge:hover {
-  background-color: #bfdbfe;
-  transform: scale(1.05);
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #ff00cc, 0 0 30px #3333ff;
 }
 
-/* Contact Section */
-.contact-section {
-  background-color: #f9fafb;
+
+.contact-section,
+.resume-section {
+  background-color: #111;
   padding: 60px 20px;
   text-align: center;
+  color: var(--text-light);
 }
 
-.contact-section h2 {
+.contact-section h2,
+.resume-section h2 {
   font-size: 32px;
-  color: #111827;
+  color: var(--neon-purple);
   margin-bottom: 10px;
 }
 
-.contact-intro {
+.contact-intro,
+.resume-description {
   font-size: 16px;
-  color: #4b5563;
+  color: var(--text-dim);
   margin-bottom: 30px;
 }
 
-.contact-methods {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-
 .contact-icon img {
-  width: 40px;
+  width: 50px;
+  filter: brightness(1.5) drop-shadow(0 0 5px #00ffff);
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .contact-icon img:hover {
   transform: scale(1.2);
-  filter: brightness(1.2);
+  filter: brightness(2) drop-shadow(0 0 10px #00ffff);
 }
 
-/* Resume Section */
-.resume-section {
-  background-color: #f3f4f6;
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.resume-section h2 {
-  font-size: 32px;
-  color: #111827;
-  margin-bottom: 15px;
-}
-
-.resume-description {
-  font-size: 16px;
-  color: #4b5563;
-  margin-bottom: 25px;
-}
 
 .resume-button {
   display: inline-block;
   padding: 12px 24px;
-  background-color: #2563eb;
+  background-color: var(--neon-purple);
   color: white;
   font-size: 16px;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
+  box-shadow: 0 0 8px var(--neon-purple);
   transition: background-color 0.3s;
 }
 
 .resume-button:hover {
-  background-color: #1e40af;
+  background-color: var(--neon-pink);
+  box-shadow: 0 0 12px var(--neon-pink);
 }
 
-/* Back-to-Top Button */
 #back-to-top,
 #backToTop {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background: #2563eb;
-  color: white;
+  background: var(--neon-green);
+  color: black;
   padding: 12px 16px;
   border-radius: 50%;
   font-size: 20px;
@@ -302,13 +315,14 @@ body {
   visibility: hidden;
   border: none;
   transition: opacity 0.4s, visibility 0.4s, background-color 0.3s;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px var(--neon-green);
   z-index: 99;
 }
 
 #back-to-top:hover,
 #backToTop:hover {
-  background-color: #1d4ed8;
+  background: var(--neon-pink);
+  box-shadow: 0 0 8px var(--neon-pink), 0 0 16px var(--neon-pink);
 }
 
 #backToTop.show {
@@ -316,7 +330,6 @@ body {
   visibility: visible;
 }
 
-/* Fade-in Animation */
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
@@ -328,11 +341,10 @@ body {
   transform: translateY(0);
 }
 
-/* Hero Scroll Arrow */
 .scroll-arrow {
   margin-top: 20px;
   font-size: 30px;
-  color: #fff;
+  color: var(--neon-cyan);
   animation: bounce 1.5s infinite;
 }
 
@@ -342,7 +354,6 @@ body {
   60% { transform: translateY(-5px); }
 }
 
-/* Projects */
 .portfolio-item img {
   width: 100%;
   border-radius: 5px;
@@ -351,24 +362,23 @@ body {
 
 .portfolio-item:hover img {
   transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px var(--neon-cyan);
 }
 
 .portfolio-item:hover h3 {
-  color: #f4b400;
+  color: var(--neon-pink);
 }
 
-/* Events Section */
 #events {
   padding: 50px 20px;
-  background-color: #f9f9f9;
+  background-color: var(--bg-panel);
   text-align: center;
 }
 
 #events h2 {
   font-size: 2rem;
   margin-bottom: 30px;
-  color: #333;
+  color: var(--neon-green);
 }
 
 .events-container {
@@ -379,16 +389,17 @@ body {
 }
 
 .event-card {
-  background-color: #fff;
+  background-color: var(--bg-dark);
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px var(--neon-purple);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--neon-purple);
 }
 
 .event-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 15px var(--neon-pink);
 }
 
 .event-card img {
@@ -400,11 +411,11 @@ body {
 .event-info {
   padding: 15px;
   text-align: left;
+  color: var(--text-light);
 }
 
-/* Education Section */
 .education-section {
-  background: #f7f7f7;
+  background: var(--bg-dark);
   padding: 60px 20px;
   text-align: center;
 }
@@ -412,7 +423,7 @@ body {
 .education-section h2 {
   font-size: 2.5rem;
   margin-bottom: 40px;
-  color: #333;
+  color: var(--neon-cyan);
 }
 
 .education-timeline {
@@ -423,7 +434,7 @@ body {
   gap: 30px;
   position: relative;
   padding-left: 20px;
-  border-left: 3px solid #ff7e5f;
+  border-left: 3px solid var(--neon-pink);
 }
 
 .edu-item {
@@ -440,25 +451,25 @@ body {
   top: 8px;
   width: 15px;
   height: 15px;
-  background-color: #ff7e5f;
+  background-color: var(--neon-pink);
   border-radius: 50%;
 }
 
 .edu-date {
   font-weight: bold;
-  color: #555;
+  color: var(--neon-green);
   margin-bottom: 5px;
 }
 
 .edu-details h3 {
   margin: 0;
   font-size: 1.3rem;
-  color: #222;
+  color: var(--neon-cyan);
 }
 
 .edu-details p {
   margin: 5px 0 0;
-  color: #777;
+  color: var(--text-dim);
 }
 
 @keyframes fadeInUp {
@@ -472,7 +483,6 @@ body {
   }
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
