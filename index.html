@@ -22,6 +22,7 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="#resume">Resume</a></li>
                 <li><a href="#events">Events</a></li>
                 <li><a href="#education">Education</a></li>
             </ul>
@@ -31,13 +32,24 @@
 
 
     <!-- Hero Section -->
-    <header id="home" class="hero-section">
-        <div class="hero-content">
-            <h1>Hi, I'm Aditya Goswami <span class="highlight typewriter"></span></h1>
-            <p>A passionate Web Developer</p>
-            <a href="#about" class="btn">Know More</a>
-        </div>
-    </header>
+   <section class="hero-section" id="home">
+  <div class="hero-container">
+    <div class="hero-text">
+      <h1>Hi, I'm Aditya Goswami </h1>
+      <p>A passionate web developer exploring technical, creative and impactful solutions.</p>
+      
+      <div class="hero-buttons">
+        <a href="#events" class="hero-btn primary-btn">View My Events</a>
+        <a href="#contact" class="hero-btn secondary-btn">Let's Connect</a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="images\Pro.jpg" alt="Aditya's Photo">
+    </div>
+  </div>
+</section>
+
 
 
 
@@ -53,40 +65,59 @@
 
     <!-- Skills Section -->
     <section id="skills" class="skills-section">
-        <div class="container">
-            <h2>My Skills</h2>
-            <div class="skill">
-                <span>Programming Languages</span>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 80%;"></div>
-                </div>
-            </div>
-            <div class="skill">
-                <span>Frontend, Backend and Frameworks</span>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 85%;"></div>
-                </div>
-            </div>
-            <div class="skill">
-                <span>Problem Solving and Analytics</span>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 90%;"></div>
-                </div>
-            </div>
-            <div class="skill">
-                <span>Communication</span>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 100%;"></div>
-                </div>
-            </div>
-            <div class="skill">
-                <span>Event Management and Co-Ordination</span>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 100%;"></div>
-                </div>
-            </div>
+  <h2>My Skills</h2>
+  <div class="skills-wrapper">
+
+    <!-- Technical Skills -->
+    <div class="skills-block">
+      <h3>Technical Skills</h3>
+
+      <div class="skills-category">
+        <h4>Frontend</h4>
+        <div class="skills-icons">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
         </div>
-    </section>
+      </div>
+
+      <div class="skills-category">
+        <h4>Backend</h4>
+        <div class="skills-icons">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" />
+        </div>
+      </div>
+
+      <div class="skills-category">
+        <h4>Tools & Technologies</h4>
+        <div class="skills-icons">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Non-Tech Skills -->
+    <div class="skills-block">
+      <h3>Non-Tech Skills</h3>
+      <div class="soft-skills-container">
+        <span class="skill-badge">Public Speaking</span>
+        <span class="skill-badge">Team Leadership</span>
+        <span class="skill-badge">Adaptability</span>
+        <span class="skill-badge">Time Management</span>
+        <span class="skill-badge">Event Planning</span>
+        <span class="skill-badge">Creative Thinking</span>
+        <span class="skill-badge">Problem Solving</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
     <!-- Projects Section -->
     <section id="projects" class="projects-section">
@@ -108,37 +139,44 @@
     </section>
 
     <!-- Contct Section -->
-    <section id="contact" class="contact-section fade-in">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <div class="contact-content">
-                <!-- Contact Details with Direct Links -->
-                <div class="contact-links">
-                    <p>Feel free to connect with me on the platforms below:</p>
-                    <ul>
-                        <li>
-                            <a href="mailto:binarptya@gmail.com" target="_blank" class="contact-link">
-                                <i class="fas fa-envelope"></i> Email Me
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/aditya-goswami-662581339/" target="_blank" class="contact-link">
-                                <i class="fab fa-linkedin"></i> Connect on LinkedIn
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/coder-adi6" target="_blank" class="contact-link">
-                                <i class="fab fa-github"></i> Connect on GitHub
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    
+    <section id="contact" class="contact-section">
+  <h2>Contact Me</h2>
+  <p class="contact-intro">Let's connect! I'm open to collaboration, opportunities, or just a chat.</p>
 
-    <button id="back-to-top" title="Back to top">&uarr;</button>
+  <div class="contact-methods">
+    <!-- Email -->
+    <a href="mailto:binarptya@gmail.com" class="contact-icon" target="_blank">
+      <img src="https://img.icons8.com/ios-filled/50/000000/email.png" alt="Email" />
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/aditya-goswami-662581339/" class="contact-icon" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" />
+    </a>
+
+    <!-- GitHub -->
+    <a href="https://github.com/coder-adi6" class="contact-icon" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />
+    </a>
+
+  </div>
+</section>
+
+<!-- Resume Section -->
+
+<<section id="resume" class="resume-section">
+  <h2>My Resume</h2>
+  <p class="resume-description">
+    Want to know more about my background, education, and projects? Download my resume below!
+  </p>
+
+  <a href="https://coder-adi6.github.io/Portfolio/Resume.pdf" target="_blank" class="resume-button">
+    📄 Download Resume (PDF)
+  </a>
+</section>
+
+
+<button id="back-to-top" title="Back to top">&uarr;</button>
     <script src="scripts.js"></script>
 </body>
 
