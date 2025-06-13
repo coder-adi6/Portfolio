@@ -31,13 +31,13 @@
 
 
 
-    <!-- Hero Section -->
-   <section class="hero-section" id="home">
+   <!-- Hero Section -->
+<section class="hero-section" id="home">
   <div class="hero-container">
     <div class="hero-text">
-      <h1>Hi, I'm Aditya Goswami </h1>
-      <p>A passionate web developer exploring technical, creative and impactful solutions.</p>
-      
+      <h1>Hi, I'm Aditya Goswami</h1>
+      <p><span id="typed-sentence"></span></p>
+
       <div class="hero-buttons">
         <a href="#events" class="hero-btn primary-btn">View My Events</a>
         <a href="#contact" class="hero-btn secondary-btn">Let's Connect</a>
@@ -45,10 +45,24 @@
     </div>
 
     <div class="hero-image">
-      <img src="images\Pro.jpg" alt="Aditya's Photo">
+      <img src="images/Pro.jpg" alt="Aditya's Photo">
     </div>
   </div>
 </section>
+
+<!-- Typed.js Script -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+  var typed = new Typed("#typed-sentence", {
+    strings: [
+      "A passionate web developer exploring technical, creative and impactful solutions."
+    ],
+    typeSpeed: 70,
+    backSpeed: 15,
+    showCursor: false,
+    loop: true
+  });
+</script>
 
 
 
@@ -265,6 +279,31 @@
           </div>
         </div>
       </section>
+
+      <!-- Back to Top Button -->
+<button id="backToTop" title="Go to top">↑</button>
+
+<script>
+  const backToTopBtn = document.getElementById("backToTop");
+
+  // Show button when scrolling down
+  window.onscroll = function () {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      backToTopBtn.classList.add("show");
+    } else {
+      backToTopBtn.classList.remove("show");
+    }
+  };
+
+  // Scroll to top on click
+  backToTopBtn.onclick = function () {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+</script>
+
       
     
 
