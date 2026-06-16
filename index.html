@@ -3,23 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aditya Goswami | Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>My Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-     <!-- Link CSS --> <link rel="stylesheet" href="style.css"> <!-- Link JavaScript --> <script src="script.js" defer></script>
+    <!-- Link CSS --> <link rel="stylesheet" href="style.css">
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="neon-spinner"></div>
+    </div>
+
+    <!-- Custom Cyberpunk Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
 
     <!-- Navbar -->
     <nav class="navbar">
         <div class="container">
             <h1 class="logo">My Portfolio</h1>
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#resume">Resume</a></li>
@@ -33,19 +46,27 @@
 
    <!-- Hero Section -->
 <section class="hero-section" id="home">
+  <!-- Particles Background -->
+  <div id="particles-js"></div>
+
   <div class="hero-container">
     <div class="hero-text">
       <h1>Hi, I'm Aditya Goswami</h1>
       <p><span id="typed-sentence"></span></p>
 
       <div class="hero-buttons">
-        <a href="#events" class="hero-btn primary-btn">View My Events</a>
+        <a href="#projects" class="hero-btn primary-btn">View My Projects</a>
         <a href="#contact" class="hero-btn secondary-btn">Let's Connect</a>
       </div>
     </div>
 
     <div class="hero-image">
       <img src="images/Pro.jpg" alt="Aditya's Photo">
+    </div>
+
+    <!-- Scroll Arrow -->
+    <div style="width: 100%; text-align: center; margin-top: 50px;">
+      <i class="fas fa-chevron-down scroll-arrow" title="Scroll Down" style="cursor: pointer;"></i>
     </div>
   </div>
 </section>
@@ -55,7 +76,7 @@
 <script>
   var typed = new Typed("#typed-sentence", {
     strings: [
-      "A passionate web developer exploring technical, creative and impactful solutions."
+      "A passionate web developer"
     ],
     typeSpeed: 70,
     backSpeed: 15,
@@ -68,17 +89,19 @@
 
 
     <!-- About Section -->
-    <section id="about" class="about-section">
+    <section id="about" class="about-section" data-aos="fade-up">
         <div class="container">
             <h2>About Me</h2>
-            <p>I am a computer science student and a web developer with a passion in technology, problem solving, innovation, and for creating beautiful and functional websites. I love to explore new technologies and solve challenging problems. My academic journey so far has equipped me with a solid foundation in programming, algorithms, and software development, and I'm eager to apply these skills to real-world challenges. I am sure to improve these skills as years pass on and as I gain more knowledge and experiences. Currently, I'm proficient in HTML, CSS and JavaScript. Also, I have basic knowledge on C, Java and Python. Beyond academics, I'm actively involved in coding competitions, hackathons and open-source contributions, which have honed my teamwork and project management skills. Also, I am the department Coordinator of Institution Innovation Council (IIC) and an active volunteer of National Service Scheme (NSS). I'm driven by curiosity and a desire to continuously learn and grow. I look forward to opportunities to collaborate, innovate, and make a meaningful impact in the tech world.</p>
+            <p>I'm a Computer Science student with two completed internships and a habit of shipping things that actually work. As a Software Developer Intern at PenguinApps Lab, I built a full-stack Task Manager from scratch (Django + React + PostgreSQL + Docker) and contributed UI/UX work to a live client product. Before that, at Infosys Springboard, I developed an AI-driven contract compliance checker using Python, NLP, and supervised learning — covering everything from data preprocessing to model evaluation.
+               My stack lives at the intersection of full-stack web and applied AI: I'm comfortable designing REST APIs, building responsive frontends, containerising applications with Docker, and training ML models. I care about clean code, fast iteration, and building things that solve real problems for real users.
+               I'm Currently open to SDE internship and full-time opportunities where I can contribute from day one.</p>
         </div>
     </section>
 
 
 
     <!-- Skills Section -->
-    <section id="skills" class="skills-section">
+    <section id="skills" class="skills-section" data-aos="fade-up">
   <h2>My Skills</h2>
   <div class="skills-wrapper">
 
@@ -132,41 +155,86 @@
   </div>
 </section>
 
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section" data-aos="fade-up">
+        <h2>Experience & Internships</h2>
+        <div class="experience-timeline">
+            <div class="exp-item">
+                <div class="exp-date">May 2026 – Jul 2026</div>
+                <div class="exp-details">
+                    <h3>Software Developer Intern</h3>
+                    <p>PenguinApps Lab · Remote · Mumbai</p>
+                    <ul class="exp-desc">
+                        <li>Built a full-stack Task Manager app with a Django REST API backend (Python), React frontend, and PostgreSQL database — containerised with Docker Compose for consistent dev/prod environments.</li>
+                        <li>Implemented JWT-based auth (register/login), project and task CRUD endpoints, and PATCH-based status updates; CORS-configured for seamless frontend-backend communication.</li>
+                        <li>Contributed to a live client-facing web product — designed and implemented UI/UX for key authentication pages, working on a dedicated Git branch with full PR and code-review workflow.</li>
+                        <li>Followed professional engineering practices: Git branching strategy, environment variable management, and team collaboration on a shared production codebase.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-date">Sept 2025 – Nov 2025</div>
+                <div class="exp-details">
+                    <h3>AI/ML Virtual Intern</h3>
+                    <p>Infosys Springboard · Remote</p>
+                    <ul class="exp-desc">
+                        <li>Designed and deployed an AI-driven contract analysis system that automatically checks documents for compliance with GDPR, HIPAA, CCPA, and SOX regulatory standards.</li>
+                        <li>Built a risk assessment engine in Python that classifies non-compliant clauses into Low / Medium / High severity levels, reducing manual review effort.</li>
+                        <li>Applied supervised learning, NLP pipelines, and model evaluation techniques across the full ML lifecycle — from data preprocessing to inference.</li>
+                        <li>Delivered the project within a structured internship timeline, producing clean, documented, and reproducible code.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects-section">
+    <section id="projects" class="projects-section" data-aos="fade-up">
         <div class="container">
             <h2>My Projects</h2>
             <div class="portfolio-items">
                 <div class="portfolio-item">
-                    <h3>NaariCabs</h3>
-                    <h4>Project Link</h4
-                    <li>
-                        <a href="https://coder-adi6.github.io/NaariCabs/" target="_blank" class="contact-link">
-                            <i class="fab fa-github"></i> Click to view
-                        </a>
-                    </li>
-                    <p>Women-Only Travel Assistance is a safety-focused ride-booking platform connecting female riders with verified female drivers. It offers secure cab and carpooling services, real-time tracking, SOS alerts, and post-ride feedback. The platform empowers women by promoting safer travel and encouraging female participation in the transportation industry through training and incentives.</p>
+                    <h3>AI-Powered Regulatory Compliance Checker</h3>
+                    <p class="tech-stack">Infosys Springboard Internship Project · Python · NLP · Supervised Learning</p>
+                    <h4>Project Link</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>
+                            <a href="https://github.com/coder-adi6/AI-Powered-Regulatory-Compliance-Checker-for-Contracts" target="_blank" class="contact-link" style="color: var(--neon-cyan); text-decoration: none;">
+                                <i class="fab fa-github"></i> Click to view
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="project-features">
+                        <li>Built an end-to-end AI system that parses legal contracts and flags clauses violating GDPR, HIPAA, CCPA, and SOX regulations.</li>
+                        <li>Implemented severity scoring (Low / Medium / High) using supervised classification; evaluated model performance with standard ML metrics.</li>
+                        <li>Produced well-documented source code hosted on GitHub; project selected as an internship capstone deliverable.</li>
+                    </ul>
+                </div>
+
+                <div class="portfolio-item">
+                    <h3>Task Manager — Full-Stack Web App</h3>
+                    <p class="tech-stack">PenguinApps Lab Internship Project · Django · React · PostgreSQL · Docker</p>
+                    <h4>Project Link</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>
+                            <a href="https://github.com/coder-adi6/task-manager" target="_blank" class="contact-link" style="color: var(--neon-cyan); text-decoration: none;">
+                                <i class="fab fa-github"></i> Click to view
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="project-features">
+                        <li>Designed and built a full-stack task management application with a Django REST Framework backend, React (CDN) frontend, and PostgreSQL database — fully containerised with Docker Compose.</li>
+                        <li>Implemented user authentication (register/login with token), project management, task CRUD, and status update (PATCH) endpoints; CORS-enabled for frontend integration.</li>
+                        <li>Automated environment setup with a Jupyter Notebook script; falls back gracefully to SQLite if PostgreSQL is not configured, ensuring zero-friction local development.</li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <div class="container">
-    <h3>AI-Powered Regulatory Compliance Checker for Contracts</h3>
-    <h4>Project Link</h4>
-    <li>
-        <a href="https://github.com/coder-adi6/AI-Powered-Regulatory-Compliance-Checker-for-Contracts" target="_blank" class="contact-link">
-            <i class="fab fa-github"></i> View on GitHub
-        </a>
-    </li>
-    <p>
-        This project is an AI-driven tool for automatically analyzing contracts to check compliance with major regulations like GDPR, HIPAA, CCPA, and SOX. Built with Python and Streamlit, users can upload contract files (PDF/DOCX/TXT) and receive an AI-powered compliance score, risk assessment, and detailed insights. It integrates API keys for powerful language models and offers options to export reports and integrate with tools like Google Sheets and Slack. :contentReference[oaicite:0]{index=0}
-    </p>
-</div>
-
     </section>
 
-    <!-- Contct Section -->
-    <section id="contact" class="contact-section">
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section" data-aos="fade-up">
   <h2>Contact Me</h2>
   <p class="contact-intro">Let's connect! I'm open to collaboration, opportunities, or just a chat.</p>
 
@@ -190,28 +258,17 @@
 </section>
 
 <!-- Resume Section -->
-
-<<section id="resume" class="resume-section">
+<section id="resume" class="resume-section" data-aos="fade-up">
   <h2>My Resume</h2>
   <p class="resume-description">
     Want to know more about my background, education, and projects? Download my resume below!
   </p>
 
- <a href="https://raw.githubusercontent.com/coder-adi6/Portfolio/main/Resume.pdf" 
-   target="_blank" 
-   class="resume-button">
-   📄 Download Resume (PDF)
-</a>
-
+  <a href="https://coder-adi6.github.io/Portfolio/Resume.pdf" target="_blank" class="resume-button">
+    📄 Download Resume (PDF)
+  </a>
 </section>
 
-
-<button id="back-to-top" title="Back to top">&uarr;</button>
-    <script src="scripts.js"></script>
-</body>
-
-
-</html>
     <!-- Events Section --> 
     <section id="events" data-aos="fade-up">
         <h2>Events</h2>
@@ -267,12 +324,12 @@
 
 
     <!-- Education Section -->
-     <section id="education" class="education-section">
+     <section id="education" class="education-section" data-aos="fade-up">
         <h2>Education</h2>
         <div class="education-timeline">
           <div class="edu-item">
             <div class="edu-date">2023 – 2027</div>
-            <div class="edu-detailsh">
+                <div class="edu-details">
               <h3>B.Tech in Computer Science</h3>
               <p>Malla Reddy College Of Engineering (MRCE), Hyderabad</p>
             </div>
@@ -296,29 +353,24 @@
         </div>
       </section>
 
+      <!-- Footer -->
+      <footer class="site-footer">
+        <p>&copy; 2024 Aditya Goswami. All rights reserved.</p>
+      </footer>
+
       <!-- Back to Top Button -->
-<button id="backToTop" title="Go to top">↑</button>
+<button id="back-to-top" title="Back to top">↑</button>
 
-<script>
-  const backToTopBtn = document.getElementById("backToTop");
-
-  // Show button when scrolling down
-  window.onscroll = function () {
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-      backToTopBtn.classList.add("show");
-    } else {
-      backToTopBtn.classList.remove("show");
-    }
-  };
-
-  // Scroll to top on click
-  backToTopBtn.onclick = function () {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
-</script>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
 
       
     
@@ -326,11 +378,3 @@
     
     
     
-
-
-
-
-
-
-
-
