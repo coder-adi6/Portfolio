@@ -1,123 +1,95 @@
-// Animate skill bars on scroll
-const skillBars = document.querySelectorAll('.progress');
-
-window.addEventListener('scroll', () => {
-    skillBars.forEach((bar) => {
-        const rect = bar.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-            bar.style.width = bar.style.getPropertyValue('width');
-        }
-    });
-});
-// Typing Effect
-const typewriter = document.querySelector(".typewriter");
-const words = ["a Coder", "a Developer", "a Designer" , "a CS Engineer"];
-let wordIndex = 0;
-let letterIndex = 0;
-let isDeleting = false;
-
-function type() {
-    const currentWord = words[wordIndex];
-    if (isDeleting) {
-        letterIndex--;
-    } else {
-        letterIndex++;
-    }
-
-    typewriter.textContent = currentWord.slice(0, letterIndex);
-
-    if (!isDeleting && letterIndex === currentWord.length) {
-        isDeleting = true;
-        setTimeout(type, 1000); // Pause before deleting
-    } else if (isDeleting && letterIndex === 0) {
-        isDeleting = false;
-        wordIndex = (wordIndex + 1) % words.length;
-        setTimeout(type, 500); // Pause before typing next word
-    } else {
-        setTimeout(type, isDeleting ? 100 : 150); // Typing speed
-    }
-}
-// Initialize typing effect
-document.addEventListener("DOMContentLoaded", () => {
-    typeEffect();
-});
-
-
-type();
-
 // Back-to-Top Button
 const backToTop = document.getElementById("back-to-top");
 
 window.addEventListener("scroll", () => {
     if (window.scrollY > 300) {
-        backToTop.style.display = "block";
+        backToTop.classList.add("show");
     } else {
-        backToTop.style.display = "none";
+        backToTop.classList.remove("show");
     }
 });
 
 backToTop.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
-// Fade-in animations on scroll
-const fadeIns = document.querySelectorAll('.fade-in');
-const testimonials = document.querySelectorAll('.testimonial');
-
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.2 });
-
-// Observe all fade-in elements
-fadeIns.forEach(fadeIn => observer.observe(fadeIn));
-testimonials.forEach(testimonial => observer.observe(testimonial));
 
 // Bouncing scroll arrow functionality
 const scrollArrow = document.querySelector('.scroll-arrow');
-scrollArrow.addEventListener('click', () => {
-    document.querySelector('#about').scrollIntoView({ behavior: 'smooth' });
+if (scrollArrow) {
+    scrollArrow.addEventListener('click', () => {
+        document.querySelector('#about').scrollIntoView({ behavior: 'smooth' });
+    });
+}
+
+// Hamburger Menu Toggle
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('nav-open');
+    navToggle.classList.toggle('nav-open');
 });
-// Modal Functionality
-const modal = document.getElementById("eventModal");
-const modalImage = document.getElementById("modalImage");
-const modalTitle = document.getElementById("modalTitle");
-const modalDescription = document.getElementById("modalDescription");
 
-// Data for Events
-const eventsData = [
-    {
-        title: "Event Title 1",
-        description: "Details about Event 1. This could include your achievements or memorable moments.",
-        image: "event1.jpg",
-    },
-    {
-        title: "Event Title 2",
-        description: "Details about Event 2. Highlight key aspects of your participation.",
-        image: "event2.jpg",
-    },
-];
+// Active link highlighting on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLi = document.querySelectorAll('.nav-links li a');
 
-// Open Modal
-function openModal(index) {
-    const event = eventsData[index - 1];
-    modalImage.src = event.image;
-    modalTitle.textContent = event.title;
-    modalDescription.textContent = event.description;
-    modal.style.display = "flex";
-}
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            navLi.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === entry.target.id) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+}, { rootMargin: '-50% 0px -50% 0px' }); // Activates when section is in the middle of the screen
 
-// Close Modal
-function closeModal() {
-    modal.style.display = "none";
-}
-
-// Close Modal on Click Outside
-window.addEventListener("click", (e) => {
-    if (e.target === modal) {
-        closeModal();
+sections.forEach(section => {
+    if (section) {
+        observer.observe(section);
     }
 });
+
+// Preloader removal
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        preloader.classList.add('preloader-hidden');
+    }
+});
+
+// Custom Cursor Logic
+const cursorDot = document.querySelector('.cursor-dot');
+const cursorRing = document.querySelector('.cursor-ring');
+
+if (cursorDot && cursorRing) {
+    window.addEventListener('mousemove', (e) => {
+        // Update dot position instantly
+        cursorDot.style.left = `${e.clientX}px`;
+        cursorDot.style.top = `${e.clientY}px`;
+        // Add a slight trailing delay to the ring for a fluid effect
+        setTimeout(() => {
+            cursorRing.style.left = `${e.clientX}px`;
+            cursorRing.style.top = `${e.clientY}px`;
+        }, 60);
+    });
+
+    // Add hover effects for interactive elements
+    const interactiveElements = document.querySelectorAll('a, button, .nav-toggle, .scroll-arrow');
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => cursorRing.classList.add('hovered'));
+        el.addEventListener('mouseleave', () => cursorRing.classList.remove('hovered'));
+    });
+}
+
+// Particles.js Initialization for Hero Section
+if (typeof particlesJS !== 'undefined') {
+    particlesJS('particles-js', {
+        "particles": { "number": { "value": 70, "density": { "enable": true, "value_area": 800 } }, "color": { "value": ["#00ffff", "#ff00c8", "#39ff14"] }, "shape": { "type": "circle" }, "opacity": { "value": 0.5, "random": false }, "size": { "value": 3, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#00ffff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false } },
+        "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true }, "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } }, "push": { "particles_nb": 4 } } },
+        "retina_detect": true
+    });
+}
