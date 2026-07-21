@@ -93,3 +93,18 @@ if (typeof particlesJS !== 'undefined') {
         "retina_detect": true
     });
 }
+
+// Autohide Navbar on Scroll
+const navbar = document.querySelector('.navbar-container');
+let lastScrollY = window.scrollY;
+
+window.addEventListener('scroll', () => {
+    // Hide on scroll down, show on scroll up
+    if (lastScrollY < window.scrollY && window.scrollY > 100) {
+        navbar.classList.add('navbar-hidden');
+    } else {
+        navbar.classList.remove('navbar-hidden');
+    }
+
+    lastScrollY = window.scrollY;
+});
