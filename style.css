@@ -215,9 +215,6 @@ body {
   font-size: 18px;
 }
 
-.hero-image:hover img {
-}
-
 @keyframes blinkCursor {
   0%, 49% {
     border-color: var(--neon-cyan);
@@ -637,6 +634,7 @@ ul.project-features li {
 
 .projects-section {
   padding: 60px 20px;
+  /* background: rgba(15, 15, 27, 0.9); */
 }
 
 .events-container {
@@ -653,11 +651,6 @@ ul.project-features li {
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid var(--neon-purple);
-}
-
-.event-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px var(--neon-pink);
 }
 
 .event-card:hover {
