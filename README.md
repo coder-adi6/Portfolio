@@ -12,7 +12,7 @@ I'm a final-year Computer Science student passionate about building full-stack w
 
 - HTML5, CSS3, JavaScript
 - AOS (Animate on Scroll) for animations
-- Deployed on [Vercel](https://vercel.com/)
+- Deployed on [Vercel](https://portfolio-aditya-05.vercel.app/)
 
 ## Sections
 
