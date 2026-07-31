@@ -69,24 +69,6 @@
   </div>
 </section>
 
-<!-- Typed.js Script -->
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-<script>
-  var typed = new Typed("#typed-sentence", {
-    strings: [
-      "I build things for the web.",
-      "A Software Development Engineer Intern.",
-      "A Full-Stack Developer.",
-      "An AI/ML Enthusiast.",
-      "A Computer Science Student."
-    ],
-    typeSpeed: 80,
-    backSpeed: 15,
-    showCursor: false,
-    loop: true
-  });
-</script>
-
 
 
 
@@ -207,10 +189,10 @@
     <!-- Experience Section -->
     <section id="experience" class="experience-section" data-aos="fade-up">
         <h2 class="section-title">Experience & Internships</h2>
-        <div class="experience-timeline">
-            <div class="exp-item" data-aos="fade-left" data-aos-delay="100">
-                <div class="exp-date">May 2026 – Present</div>
-                <div class="exp-details">
+        <div class="timeline">
+            <div class="timeline-item" data-aos="fade-left" data-aos-delay="100">
+                <div class="timeline-date">May 2026 – Present</div>
+                <div class="timeline-details">
                     <h3>Software Developer Intern</h3>
                     <p>PenguinApps Lab · Remote · Mumbai</p>
                     <ul class="exp-desc">
@@ -220,9 +202,9 @@
                 </div>
             </div>
 
-            <div class="exp-item" data-aos="fade-left" data-aos-delay="200">
-                <div class="exp-date">Sept 2025 – Nov 2025</div>
-                <div class="exp-details">
+            <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
+                <div class="timeline-date">Sept 2025 – Nov 2025</div>
+                <div class="timeline-details">
                     <h3>AI/ML Virtual Intern</h3>
                     <p>Infosys Springboard · Remote</p>
                     <ul class="exp-desc">
@@ -308,7 +290,7 @@
         <h2 class="section-title">Events</h2>
         <div class="events-container">
             <div class="event-card" data-aos="fade-up" data-aos-delay="100">
-                <img src="images/WhatsApp Image 2024-11-21 at 14.04.24_499e3968.jpg" alt="SIH">
+                <img src="images/WhatsApp Image 2024-11-21 at 14.04.24_499e3968.jpg" alt="SIH" loading="lazy" height="200">
                 <div class="event-info">
                     <h3>Smart India Hackathon(SIH)</h3>
                     <p class="event-date">Date: September 4, 2024</p>
@@ -319,7 +301,7 @@
             </div>
     
             <div class="event-card" data-aos="fade-up" data-aos-delay="200">
-                <img src="images/WhatsApp Image 2024-11-21 at 14.41.57_5f087ae2.jpg" alt="HACK4SDG at IITH">
+                <img src="images/WhatsApp Image 2024-11-21 at 14.41.57_5f087ae2.jpg" alt="HACK4SDG at IITH" loading="lazy" height="200">
                 <div class="event-info">
                     <h3>HACK4SDG at IITH</h3>
                     <p class="event-date">Date: October 26, 2024</p>
@@ -331,7 +313,7 @@
             </div>
 
             <div class="event-card" data-aos="fade-up" data-aos-delay="300">
-                <img src="images/WhatsApp Image 2025-05-12 at 6.53.09 PM.jpeg" alt="AI DAYS 2K25">
+                <img src="images/WhatsApp Image 2025-05-12 at 6.53.09 PM.jpeg" alt="AI DAYS 2K25" loading="lazy" height="200">
                 <div class="event-info">
                     <h3>AI DAYS 2K25</h3>
                     <p class="event-date">Date: April 12, 2025</p>
@@ -342,7 +324,7 @@
             </div>
 
             <div class="event-card" data-aos="fade-up" data-aos-delay="400">
-                <img src="images/WhatsApp Image 2025-05-12 at 7.07.25 PM.jpeg" alt="AI DAYS 2K25">
+                <img src="images/WhatsApp Image 2025-05-12 at 7.07.25 PM.jpeg" alt="AI DAYS 2K25" loading="lazy" height="200">
                 <div class="event-info">
                     <h3>HACK-N-WIN</h3>
                     <p class="event-date">Date: March 21-22, 2025</p>
@@ -360,26 +342,26 @@
     <!-- Education Section -->
      <section id="education" class="education-section" data-aos="fade-up">
         <h2 class="section-title">Education</h2>
-        <div class="education-timeline">
-          <div class="edu-item" data-aos="fade-right" data-aos-delay="100">
-            <div class="edu-date">2023 – 2027</div>
-                <div class="edu-details">
+        <div class="timeline">
+          <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+            <div class="timeline-date">2023 – 2027</div>
+                <div class="timeline-details">
               <h3>B.Tech in Computer Science</h3>
               <p>Malla Reddy College Of Engineering (MRCE), Hyderabad</p>
             </div>
           </div>
       
-          <div class="edu-item" data-aos="fade-right" data-aos-delay="200">
-            <div class="edu-date">2021 – 2023</div>
-            <div class="edu-details">
+          <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
+            <div class="timeline-date">2021 – 2023</div>
+            <div class="timeline-details">
               <h3>Intermediate (MPC)</h3>
               <p>Sree Navodaya Junior College, Visakhapatnam</p>
             </div>
           </div>
       
-          <div class="edu-item" data-aos="fade-right" data-aos-delay="300">
-            <div class="edu-date">2011 – 2021</div>
-            <div class="edu-details">
+          <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
+            <div class="timeline-date">2011 – 2021</div>
+            <div class="timeline-details">
               <h3>Schooling</h3>
               <p>St.Ann's High School, Visakhapatnam</p>
             </div>
@@ -404,10 +386,8 @@
 <button id="back-to-top" title="Back to top">↑</button>
 
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true });
-    </script>
     <!-- Particles.js -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="scripts.js"></script>

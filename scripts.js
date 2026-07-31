@@ -1,55 +1,130 @@
-// Back-to-Top Button
-const backToTop = document.getElementById("back-to-top");
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize AOS (Animate on Scroll)
+    AOS.init({ duration: 1000, once: true });
 
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-        backToTop.classList.add("show");
-    } else {
-        backToTop.classList.remove("show");
+    // Back-to-Top Button
+    const backToTop = document.getElementById("back-to-top");
+    if (backToTop) {
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add("show");
+            } else {
+                backToTop.classList.remove("show");
+            }
+        });
+
+        backToTop.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
     }
-});
 
-backToTop.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-});
+    // Bouncing scroll arrow functionality
+    const scrollArrow = document.querySelector('.scroll-arrow');
+    if (scrollArrow) {
+        scrollArrow.addEventListener('click', () => {
+            document.querySelector('#about').scrollIntoView({ behavior: 'smooth' });
+        });
+    }
 
-// Bouncing scroll arrow functionality
-const scrollArrow = document.querySelector('.scroll-arrow');
-if (scrollArrow) {
-    scrollArrow.addEventListener('click', () => {
-        document.querySelector('#about').scrollIntoView({ behavior: 'smooth' });
-    });
-}
+    // Hamburger Menu Toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
 
-// Hamburger Menu Toggle
-const navToggle = document.querySelector('.nav-toggle');
-const navLinks = document.querySelector('.nav-links');
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('nav-open');
+            navToggle.classList.toggle('nav-open');
+        });
+    }
 
-navToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('nav-open');
-    navToggle.classList.toggle('nav-open');
-});
+    // Active link highlighting on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLi = document.querySelectorAll('.nav-links li a');
 
-// Active link highlighting on scroll
-const sections = document.querySelectorAll('section[id]');
-const navLi = document.querySelectorAll('.nav-links li a');
-
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            navLi.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').substring(1) === entry.target.id) {
-                    link.classList.add('active');
+    if (sections.length > 0 && navLi.length > 0) {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLi.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href').substring(1) === entry.target.id) {
+                            link.classList.add('active');
+                        }
+                    });
                 }
             });
-        }
-    });
-}, { rootMargin: '-50% 0px -50% 0px' }); // Activates when section is in the middle of the screen
+        }, { rootMargin: '-50% 0px -50% 0px' }); // Activates when section is in the middle of the screen
 
-sections.forEach(section => {
-    if (section) {
-        observer.observe(section);
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    }
+
+    // Custom Cursor Logic
+    const cursorDot = document.querySelector('.cursor-dot');
+    const cursorRing = document.querySelector('.cursor-ring');
+
+    if (cursorDot && cursorRing) {
+        window.addEventListener('mousemove', (e) => {
+            // Update dot position instantly
+            cursorDot.style.left = `${e.clientX}px`;
+            cursorDot.style.top = `${e.clientY}px`;
+            // Add a slight trailing delay to the ring for a fluid effect
+            setTimeout(() => {
+                cursorRing.style.left = `${e.clientX}px`;
+                cursorRing.style.top = `${e.clientY}px`;
+            }, 60);
+        });
+
+        // Add hover effects for interactive elements
+        const interactiveElements = document.querySelectorAll('a, button, .nav-toggle, .scroll-arrow');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => cursorRing.classList.add('hovered'));
+            el.addEventListener('mouseleave', () => cursorRing.classList.remove('hovered'));
+        });
+    }
+
+    // Typed.js Initialization
+    if (typeof Typed !== 'undefined' && document.getElementById('typed-sentence')) {
+        new Typed("#typed-sentence", {
+            strings: [
+                "I build things for the web.",
+                "A Software Development Engineer Intern.",
+                "A Full-Stack Developer.",
+                "An AI/ML Enthusiast.",
+                "A Computer Science Student."
+            ],
+            typeSpeed: 80,
+            backSpeed: 15,
+            showCursor: false,
+            loop: true
+        });
+    }
+
+    // Particles.js Initialization
+    if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
+        particlesJS('particles-js', {
+            "particles": { "number": { "value": 70, "density": { "enable": true, "value_area": 800 } }, "color": { "value": ["#00ffff", "#ff00c8", "#39ff14"] }, "shape": { "type": "circle" }, "opacity": { "value": 0.5, "random": false }, "size": { "value": 3, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#00ffff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false } },
+            "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true }, "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } }, "push": { "particles_nb": 4 } } },
+            "retina_detect": true
+        });
+    }
+
+    // Autohide Navbar on Scroll
+    const navbar = document.querySelector('.navbar-container');
+    if (navbar) {
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            // Hide on scroll down, show on scroll up
+            if (lastScrollY < window.scrollY && window.scrollY > 100) {
+                navbar.classList.add('navbar-hidden');
+            } else {
+                navbar.classList.remove('navbar-hidden');
+            }
+
+            lastScrollY = window.scrollY;
+        });
     }
 });
 
@@ -57,54 +132,24 @@ sections.forEach(section => {
 window.addEventListener('load', () => {
     const preloader = document.getElementById('preloader');
     if (preloader) {
-        preloader.classList.add('preloader-hidden');
-    }
-});
-
-// Custom Cursor Logic
-const cursorDot = document.querySelector('.cursor-dot');
-const cursorRing = document.querySelector('.cursor-ring');
-
-if (cursorDot && cursorRing) {
-    window.addEventListener('mousemove', (e) => {
-        // Update dot position instantly
-        cursorDot.style.left = `${e.clientX}px`;
-        cursorDot.style.top = `${e.clientY}px`;
-        // Add a slight trailing delay to the ring for a fluid effect
+        // Add a short delay to prevent flash of unstyled content
         setTimeout(() => {
-            cursorRing.style.left = `${e.clientX}px`;
-            cursorRing.style.top = `${e.clientY}px`;
-        }, 60);
-    });
-
-    // Add hover effects for interactive elements
-    const interactiveElements = document.querySelectorAll('a, button, .nav-toggle, .scroll-arrow');
-    interactiveElements.forEach(el => {
-        el.addEventListener('mouseenter', () => cursorRing.classList.add('hovered'));
-        el.addEventListener('mouseleave', () => cursorRing.classList.remove('hovered'));
-    });
-}
-
-// Particles.js Initialization for Hero Section
-if (typeof particlesJS !== 'undefined') {
-    particlesJS('particles-js', {
-        "particles": { "number": { "value": 70, "density": { "enable": true, "value_area": 800 } }, "color": { "value": ["#00ffff", "#ff00c8", "#39ff14"] }, "shape": { "type": "circle" }, "opacity": { "value": 0.5, "random": false }, "size": { "value": 3, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#00ffff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false } },
-        "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true }, "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } }, "push": { "particles_nb": 4 } } },
-        "retina_detect": true
-    });
-}
-
-// Autohide Navbar on Scroll
-const navbar = document.querySelector('.navbar-container');
-let lastScrollY = window.scrollY;
-
-window.addEventListener('scroll', () => {
-    // Hide on scroll down, show on scroll up
-    if (lastScrollY < window.scrollY && window.scrollY > 100) {
-        navbar.classList.add('navbar-hidden');
-    } else {
-        navbar.classList.remove('navbar-hidden');
+            preloader.classList.add('preloader-hidden');
+        }, 100);
     }
-
-    lastScrollY = window.scrollY;
 });
+
+
+// The rest of the original script was moved inside the DOMContentLoaded listener
+// to ensure all elements are available before scripts run.
+// The preloader logic remains outside to execute on the window's load event.
+
+// The original script content is now inside the DOMContentLoaded listener.
+// For brevity, I'm not repeating it here, but the structure is as follows:
+
+/*
+document.addEventListener('DOMContentLoaded', () => {
+    // All initialization code from the original scripts.js
+    // (AOS, Typed, Particles, event listeners, etc.)
+    });
+*/
