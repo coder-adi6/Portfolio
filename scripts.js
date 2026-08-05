@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
         new Typed("#typed-sentence", {
             strings: [
                 "I build things for the web.",
-                "A Software Development Engineer Intern.",
+                "A Software Development Engineering Enthusiast.",
                 "A Full-Stack Developer.",
                 "An AI/ML Enthusiast.",
                 "A Computer Science Student."
